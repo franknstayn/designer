@@ -173,6 +173,43 @@
             margin:0 auto ;
             z-index: 9999;
         }
+
+        .sides {
+            display: -moz-flex;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            position: relative;
+            max-height: 100%;
+            padding: 0 8px;
+        }
+
+        .side {
+            text-align: center;
+            padding: 9px;
+            width: 75px;
+            height: 75px;
+            min-height: 75px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 3px;
+            position: relative;
+            border: 1px solid #ccc;
+            direction: ltr;
+        }
+        .side__img {
+            max-height: 100%;
+            width: 100%;
+        }
+        .side__price-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 2px;
+            width: 100%;
+            background: rgba(238,238,238,0.7);
+            color: #333;
+        }
     </style>
 
     <nav class="navbar navbar-expand" style="background: #fff; border: 1px solid #f1f1f1; height: 60px;">
@@ -337,8 +374,9 @@
                                     </div>
                                 </a>
                             </li>
-                        </ul>
+                    </ul>
                 </div>
+                
                 <div class="col-sm-12">
                     <div class="py-4 text-white-50" style="background:#fff; bottom: 0; position: fixed; width: 100%; border-top: 1px solid #e2e2e2;">
                         <div class="container-fluid">
@@ -374,22 +412,31 @@
             </div>
         </div>
         <div id="page-content-wrapper" style="overflow-y: scroll; overflow-x: hidden;">
-           <div class="container" style="height: 75%;">
-                <div style="height:auto">
-                        <div style="width:600px;height:600px;margin:0 auto;transform:scale(1)">
-                            <img src="https://assets0.printio.ru/assets/products/classic_polo_shirt/large-front/red-9a812d27d8aad2f9fa79d6629d75c204046fdbce9c5a3a0572c60d56510b44a6.png" style="position:absolute;top:0;left:50%;transform:translate(-50%)">
-                            <canvas id="c">
-                            </canvas>
-                        </div>
-                </div>
-                <!-- <div>
-                        <button class="btn btn-primary">Front</button>
-                    </div> -->
-                <!-- <div class="row"> -->
-                <!-- <canvas id="canvas_front"  width="685px" height="685px" style="transform: translate(-50%, 2%) !important;"></canvas> -->
-            
+                <div class="container" style="height: 75%;" >
+                    <div class="row" >
                 
-           </div>
+                        <div class="col-md-1">    
+                            <div class="sides">
+                                <div class="side sides__item side_active">
+                                        <img src="./images/front-small.png" alt="Передняя сторона" class="side__img">
+                                        <span class="side__price-label">FRONT</span>
+                                    </div>
+                                    <div class="side sides__item">
+                                        <img src="./images/back-small.png" alt="Задняя сторона" class="side__img">
+                                        <span class="side__price-label">BACK</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-11">   
+                            <div style="height:auto">
+                                <div style="width:600px;height:600px;margin:0 auto;transform:scale(1)">
+                                    <img src="./images/polo.png" style="position:absolute;top:0;left:50%;transform:translate(-50%)">
+                                    <canvas id="c"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                </div> 
+            </div>
         </div> <!-- /#page-content-wrapper -->
         <!-- <footer id="sticky-footer" class="py-2 text-white-50">
             <div class="container-fluid">
